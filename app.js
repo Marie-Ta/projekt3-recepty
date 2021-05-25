@@ -17,3 +17,29 @@ recept-hodnoceni, recept-nazev, recept-popis.
 
 6) Poslední vybraný recept ulož do Local Storage, aby se při novém otevření aplikace načetl.
 */
+
+//toLowerCase()
+
+
+const seznamElement = document.querySelector('#recepty');
+
+const dostupneRecepty = recepty;
+console.log(dostupneRecepty);
+
+
+let seznamReceptu='';
+dostupneRecepty.forEach((recept) => {
+seznamReceptu += `
+
+<div class="recept">
+                <div class="recept-obrazek">
+                    <img src="${recept.img}" alt="Obrazek">
+                </div>
+
+                <div class="recept-info">
+                    <h3>${recept.nadpis}</h3>
+                </div>
+</div>`   
+})
+
+seznamElement.innerHTML = seznamReceptu;
