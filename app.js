@@ -21,6 +21,7 @@ recept-hodnoceni, recept-nazev, recept-popis.
 //toLowerCase()
 
 
+//Podúkol 1
 const seznamElement = document.querySelector('#recepty');
 
 const dostupneRecepty = recepty;
@@ -43,3 +44,36 @@ seznamReceptu += `
 })
 
 seznamElement.innerHTML = seznamReceptu;
+
+//Podúkol 2 - filtrování
+
+let filtrReceptu = document.querySelector("#hledat");
+console.log(filtrReceptu);
+
+filtrReceptu.addEventListener("input", function(event){
+    let coHledam = event.target.value;
+
+    let vysledekHledani = recepty.filter(function(recept){
+        return recept.nadpis.toLowerCase().includes(coHledam.toLowerCase())
+    })
+
+    console.log(vysledekHledani);
+    seznamReceptu='';
+
+    vysledekHledani.forEach((recept) => {
+        seznamReceptu += `
+            <div class="recept">
+                <div class="recept-obrazek">
+                    <img src="${recept.img}" alt="Obrazek">
+                </div>
+
+                <div class="recept-info">
+                     <h3>${recept.nadpis}</h3>
+                </div>
+            </div>`
+      })
+
+    seznamElement.innerHTML = seznamReceptu;
+    
+})
+
