@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="zobrazDostupneRecepty()" onload="zobrazPosledniRecept()">
 
     <div class="kontejner">
 
@@ -43,10 +43,10 @@
             <div class="razeni">
                 
                 <label for="razeni">Seřadit</label>
-                <select id="razeni">
+                <select onchange="seradit()" id="razeni">
                     <option value=""></option>
-                    <option value="1">Od nejlepších</option>
-                    <option value="2">Od nejhorších</option>
+                    <option value="nejlepsi">Od nejlepších</option>
+                    <option value="nejhorsi">Od nejhorších</option>
                 </select>
                 
             </div>
@@ -55,7 +55,7 @@
 
         <div id="recepty" class="recepty">
            
-            <div class="recept">
+            <div onclick="detailReceptu()" class="recept">
                 <div class="recept-obrazek">
                     <img src="https://ms2.ostium.cz/instance/web-recepty/j1cFHt79/h389w574t.jpg" alt="Obrazek">
                 </div>
